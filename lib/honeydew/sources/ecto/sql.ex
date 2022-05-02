@@ -39,8 +39,8 @@ defmodule Honeydew.EctoSource.SQL do
           Ecto.Adapters.Postgres ->
             Postgres
 
-          Ecto.Adapters.Sqlite3 ->
-            Sqlite3
+          Ecto.Adapters.SQLite3 ->
+            SQLite3
 
           unsupported ->
             raise ArgumentError, unsupported_adapter_error(unsupported)

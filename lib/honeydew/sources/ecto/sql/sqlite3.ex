@@ -1,5 +1,5 @@
 if Code.ensure_loaded?(Ecto) do
-  defmodule Honeydew.EctoSource.SQL.Sqlite3 do
+  defmodule Honeydew.EctoSource.SQL.SQLite3 do
     @moduledoc false
 
     alias Honeydew.EctoSource
