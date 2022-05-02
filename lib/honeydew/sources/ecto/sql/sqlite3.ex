@@ -35,13 +35,18 @@ if Code.ensure_loaded?(Ecto) do
 
     @impl true
     def reserve(state) do
+      key_list_fragment = Enum.join(state.key_fields, ", ")
       returning_fragment = [state.private_field | state.key_fields] |> Enum.join(", ")
 
       "UPDATE #{state.table}
       SET #{state.lock_field} = #{reserve_at(state)}
-      WHERE #{state.lock_field} BETWEEN 0 AND #{ready()} #{run_if(state)}
-      ORDER BY #{state.lock_field}
-      LIMIT 1
+      WHERE (#{key_list_fragment}) = (
+        SELECT #{key_list_fragment}
+        FROM #{state.table}
+        WHERE #{state.lock_field} BETWEEN 0 AND #{ready()} #{run_if(state)}
+        ORDER BY #{state.lock_field}
+        LIMIT 1
+      )
       RETURNING #{returning_fragment}"
     end
 
