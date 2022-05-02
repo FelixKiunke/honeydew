@@ -4,7 +4,7 @@ defmodule Honeydew.EctoSource.SQL do
   alias Honeydew.EctoSource.State
   alias Honeydew.EctoSource.SQL.Cockroach
   alias Honeydew.EctoSource.SQL.Postgres
-  alias Honeydew.EctoSource.SQL.Sqlite3
+  alias Honeydew.EctoSource.SQL.SQLite3
 
   #
   # you might be wondering "what's all this shitty sql for?", it's to make sure that the database is sole arbiter of "now",
