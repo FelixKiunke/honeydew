@@ -1,12 +1,12 @@
 defmodule Honeydew.Mixfile do
   use Mix.Project
 
-  @version "1.5.0"
+  @version "1.5.1"
 
   def project do
     [app: :honeydew,
      version: @version,
-     elixir: "~> 1.12.0",
+     elixir: "~> 1.12",
      start_permanent: Mix.env() == :prod,
      docs: docs(),
      deps: deps(),

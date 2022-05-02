@@ -4,6 +4,7 @@ defmodule Honeydew.EctoSource.SQL do
   alias Honeydew.EctoSource.State
   alias Honeydew.EctoSource.SQL.Cockroach
   alias Honeydew.EctoSource.SQL.Postgres
+  alias Honeydew.EctoSource.SQL.Sqlite3
 
   #
   # you might be wondering "what's all this shitty sql for?", it's to make sure that the database is sole arbiter of "now",
@@ -37,6 +38,9 @@ defmodule Honeydew.EctoSource.SQL do
         case repo.__adapter__() do
           Ecto.Adapters.Postgres ->
             Postgres
+
+          Ecto.Adapters.Sqlite3 ->
+            Sqlite3
 
           unsupported ->
             raise ArgumentError, unsupported_adapter_error(unsupported)
