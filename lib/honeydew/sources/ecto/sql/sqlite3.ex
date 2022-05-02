@@ -108,7 +108,7 @@ if Code.ensure_loaded?(Ecto) do
     end
 
     defp msecs_ago(msecs) do
-      "#{now()} - #{msecs}"
+      "(#{now()} - #{msecs})"
     end
 
     defp now do
